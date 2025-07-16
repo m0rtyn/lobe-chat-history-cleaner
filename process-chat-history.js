@@ -6,7 +6,7 @@ const path = require('path');
 
 const inputFile = process.argv[2];
 const userName = process.argv[3] || 'User';
-const assistantName = process.argv[4] || 'Ygrek';
+const assistantName = process.argv[4] || 'Assistant';
 
 if (!inputFile) {
   console.error('Ошибка: Укажите путь к входному JSON файлу.');

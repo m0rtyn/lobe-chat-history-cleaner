@@ -11,7 +11,7 @@ const path = require('path');
 const cleanHistory = (inputFile) => {
   try {
     const originalName = path.basename(inputFile, path.extname(inputFile));
-    const outputFile = path.join(path.dirname(inputFile), `${originalName}-cleaned.json`);
+    const outputFile = path.join(path.dirname(inputFile), "dist", `${originalName}-cleaned.json`);
     const data = fs.readFileSync(inputFile, 'utf8');
     const jsonData = JSON.parse(data);
 

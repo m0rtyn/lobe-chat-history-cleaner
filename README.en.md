@@ -35,7 +35,7 @@ The tool consists of three files that work together:
     **Advanced Usage (with custom names):**
     You can also provide custom names for the user and the assistant as additional arguments.
     ```bash
-    node process-chat-history.js lobe-export.json "User" "Assistant"
+    node process-chat-history.js lobe-export.json User Assistant
     ```
     If you don't provide names, they will default to `User` and `Assistant`.
 

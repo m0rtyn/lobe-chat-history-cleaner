@@ -8,7 +8,7 @@ if (!inputFile) {
 }
 
 const originalName = path.basename(inputFile, path.extname(inputFile));
-const outputFile = path.join(path.dirname(inputFile), `memory_${originalName}.md`);
+const outputFile = path.join(path.dirname(inputFile), "dist", `memory_${originalName}.md`);
 
 const toMarkdown = (inputFile, userName, assistantName) => {
   try {
