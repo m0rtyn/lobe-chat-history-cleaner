@@ -24,11 +24,20 @@ The tool consists of three files that work together:
 
 1.  **Prerequisites**: Ensure you have Node.js installed on your system.
 2.  **Setup**: Place all three scripts (`process-chat-history.js`, `clean-history.js`, `to-markdown.js`) and your LobeChat export file (e.g., `lobe-export.json`) in the same directory.
-3.  **Execution**: Open your terminal in that directory and run the main script, passing the name of your export file as an argument:
+3.  **Execution**: Open your terminal in that directory and run the main script.
 
+    **Basic Usage:**
+    Provide the name of your export file as an argument:
     ```bash
     node process-chat-history.js lobe-export.json
     ```
+
+    **Advanced Usage (with custom names):**
+    You can also provide custom names for the user and the assistant as additional arguments.
+    ```bash
+    node process-chat-history.js lobe-export.json "User" "Assistant"
+    ```
+    If you don't provide names, they will default to `User` and `Assistant`.
 
 ### Output Files
 
@@ -46,4 +55,6 @@ Running the script will generate two new files:
         {Message content}
 
         ```
-        Where `{Name}` is `Martyn` for the `user` role and `Ygrek` for the `assistant` role.
+        Where `{Name}` is the name you provided (or the default `User`/`Assistant`).
+
+---

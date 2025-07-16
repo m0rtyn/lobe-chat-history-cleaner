@@ -10,7 +10,7 @@ if (!inputFile) {
 const originalName = path.basename(inputFile, path.extname(inputFile));
 const outputFile = path.join(path.dirname(inputFile), `memory_${originalName}.md`);
 
-const toMarkdown = (inputFile) => {
+const toMarkdown = (inputFile, userName, assistantName) => {
   try {
     const data = fs.readFileSync(inputFile, 'utf8');
 
@@ -22,13 +22,10 @@ const toMarkdown = (inputFile) => {
       throw Error('Ошибка: поле "messages" не найдено или не является массивом в предоставленном JSON.');
     }
 
-    // Сортировка сообщений по createdAt
-    // messages.sort((a, b) => new Date(a?.createdAt).getTime() - new Date(b?.createdAt).getTime());
-
     let markdownContent = '';
 
     messages.forEach(m => {
-      const name = m.role === 'user' ? 'Martyn' : m.role === 'assistant' ? 'Ygrek' : m.role;
+      const name = m.role === 'user' ? userName : m.role === 'assistant' ? assistantName : m.role;
       const paragraphs = m.content
         .split('\n')
         .map(p => p.trim())

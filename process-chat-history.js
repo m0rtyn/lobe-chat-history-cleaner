@@ -5,6 +5,9 @@ const fs = require('fs');
 const path = require('path');
 
 const inputFile = process.argv[2];
+const userName = process.argv[3] || 'User';
+const assistantName = process.argv[4] || 'Ygrek';
+
 if (!inputFile) {
   console.error('Ошибка: Укажите путь к входному JSON файлу.');
   process.exit(1);
@@ -20,7 +23,7 @@ const { outputData, outputFile } = output;
 fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf8');
 console.log(`Очищенная история сохранена в ${outputFile}`);
 
-const outputMd = toMarkdown(outputFile);
+const outputMd = toMarkdown(outputFile, userName, assistantName);
 if (!outputMd?.markdownContent || !outputMd?.outputFile) {
   console.error('Ошибка: Не удалось преобразовать историю в Markdown.');
   process.exit(1);
