@@ -20,6 +20,7 @@ if (!output?.outputData || !output?.outputFile) {
 }
 const { outputData, outputFile } = output;
 // console.log("🚀 ~ file: process-chat-history.js ~ var:  outputData, outputFile", outputData, outputFile)
+fs.mkdirSync(path.dirname(outputFile), { recursive: true });
 fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf8');
 console.log(`Очищенная история сохранена в ${outputFile}`);
 
